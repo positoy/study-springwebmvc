@@ -5,6 +5,10 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
+  <listener>
+    <listener-class>io.github.positoy.MyListener</listener-class>
+  </listener>
+
   <servlet>
     <servlet-name>helloServlet</servlet-name>
     <servlet-class>io.github.positoy.HelloServlet</servlet-class>

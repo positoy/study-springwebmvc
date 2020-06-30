@@ -18,12 +18,16 @@ public class HelloServlet extends HttpServlet {
         System.out.println("doGet");
         resp.getWriter().println("<html>\n"
                 + "<head>\n" +
-                "<title>hello servlet!</title>\n" +
+                "<title>hello " + getName() + "!</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
-                "<h1>Hello Servlet!</h1>\n" +
+                "<h1>Hello " + getName() + "!</h1>\n" +
                 "</body>\n" +
                 "</html>\n");
+    }
+
+    private Object getName() {
+        return getServletContext().getAttribute("name");
     }
 
     @Override
