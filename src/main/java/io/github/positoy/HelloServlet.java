@@ -1,5 +1,8 @@
 package io.github.positoy;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.WebApplicationContext;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,18 +19,17 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("doGet");
+        ApplicationContext context = (ApplicationContext) getServletContext().getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+        HelloService helloService = context.getBean(HelloService.class);
+
         resp.getWriter().println("<html>\n"
                 + "<head>\n" +
-                "<title>hello " + getName() + "!</title>\n" +
+                "<title>hello " + helloService.getName() + "!</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
-                "<h1>Hello " + getName() + "!</h1>\n" +
+                "<h1>Hello " + helloService.getName() + "!</h1>\n" +
                 "</body>\n" +
                 "</html>\n");
-    }
-
-    private Object getName() {
-        return getServletContext().getAttribute("name");
     }
 
     @Override
