@@ -9,6 +9,16 @@
     <listener-class>io.github.positoy.MyListener</listener-class>
   </listener>
 
+  <filter>
+    <filter-name>MyFilter</filter-name>
+    <filter-class>io.github.positoy.MyFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>MyFilter</filter-name>
+    <servlet-name>helloServlet</servlet-name>
+  </filter-mapping>
+
   <servlet>
     <servlet-name>helloServlet</servlet-name>
     <servlet-class>io.github.positoy.HelloServlet</servlet-class>
