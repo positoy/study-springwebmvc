@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Configuration
-@ComponentScan(useDefaultFilters = false, includeFilters = @ComponentScan.Filter(Controller.class))
+@ComponentScan
 public class WebConfig {
 
 }
